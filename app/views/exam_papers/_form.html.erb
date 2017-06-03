@@ -1,0 +1,74 @@
+<table class="table table-hover">
+  <%= simple_form_for @exam_papers do |f| %>
+    <div class="form-group">
+      <thead>
+        <tr colspan="2">
+          做多选题
+        </tr>
+      </thead>
+      <tbody>
+        <%= simple_form_for @exam_papers do |f| %>
+          <tr colspan="2">
+            <%= f.ChoiceQuestion.title%>
+          </tr>
+          <tr>
+            <td><%= f.input :examinee_answer_a, :label => "A" %></td>
+            <td><%= f.ChoiceQuestion.option_a %></td>
+          </tr>
+          <tr>
+            <td><%= f.input :examinee_answer_b, :label => "B" %></td>
+            <td><%= f.ChoiceQuestion.option_b %></td>
+          </tr>
+          <tr>
+            <td><%= f.input :examinee_answer_c, :label => "C" %></td>
+            <td><%= f.ChoiceQuestion.option_c %></td>
+          </tr>
+          <tr>
+            <td><%= f.input :examinee_answer_d, :label => "D" %></td>
+            <td><%= f.ChoiceQuestion.option_d %></td>
+          </tr>
+          <tr><%= f.submit "保存", class: "btn btn-primary", data: { disable_with: "Submiting..." } %></tr>
+        <% end %>
+      </tbody>
+    </div>
+
+  <% end %>
+</table>
+
+
+<%= form_tag do %>
+  <% @user_courses.each do |user_course| %>
+    <%= user_course.course_name %>
+    <%= user_course.user_name %>
+    <% if user_course.grade %>
+      <%= user_course.grade %>
+    <% else %>
+      <%= text_area_tag 'user_course', nil, :class => "input-medium search-query" %>
+    <% end %>
+  <% end %>
+  <%=submit_tag "submit" , :class => "btn" %>
+<% end %>
+
+
+<%= simple_form_for @exam_papers do |f| %>
+  <tr colspan="2">
+    <%= f.choice_question.title %>
+  </tr>
+  <tr>
+    <td><%= f.input :examinee_answer_a, :label => "A" %></td>
+    <td><%= f.choice_question.option_a %></td>
+  </tr>
+  <tr>
+    <td><%= f.input :examinee_answer_b, :label => "B" %></td>
+    <td><%= f.choice_question.option_b %></td>
+  </tr>
+  <tr>
+    <td><%= f.input :examinee_answer_c, :label => "C" %></td>
+    <td><%= f.choice_question.option_c %></td>
+  </tr>
+  <tr>
+    <td><%= f.input :examinee_answer_d, :label => "D" %></td>
+    <td><%= f.choice_question.option_d %></td>
+  </tr>
+  <tr><%#= f.submit "保存", class: "btn btn-primary", data: { disable_with: "Submiting..." } %></tr>
+<% end %>

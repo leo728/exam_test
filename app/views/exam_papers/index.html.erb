@@ -1,0 +1,51 @@
+<div class="col-md-4 col-md-offset-4">
+    <h2>考生考试</h2>
+
+    <hr>
+
+    <table class="table table-hover">
+      <%# @exam_papers.each do |f| %>
+        <div class="form-group">
+          <thead>
+            <tr colspan="2">
+              做多选题
+            </tr>
+          </thead>
+          <tbody>
+            <%#= simple_form_for @exam_papers do |f| %>
+            <%= form_tag do %>
+              <% @exam_papers.each do |f| %>
+                <tr>
+                  <td><%= f.choice_question.title %></td>
+                  <input type='hidden' name=<%= f.id.to_s + 'test'%> value=<%= f.choice_question.title %> />
+                </tr>
+                <tr>
+                  <td><%= check_box_tag( :examinee_answer_a ) %></td>
+                  <td><%= f.choice_question.option_a %></td>
+                </tr>
+                <tr>
+                  <td><%= check_box_tag( :examinee_answer_b ) %></td>
+                  <td><%= f.choice_question.option_b %></td>
+                </tr>
+                <tr>
+                  <td><%= check_box_tag( :examinee_answer_c ) %></td>
+                  <td><%= f.choice_question.option_c %></td>
+                </tr>
+                <tr>
+                  <td><%= check_box_tag( :examinee_answer_d ) %></td>
+                  <td><%= f.choice_question.option_d %></td>
+                </tr>
+                <tr><%#= f.submit "保存", class: "btn btn-primary", data: { disable_with: "Submiting..." } %></tr>
+              <% end %>
+              <tr><td colspan="2"><%=submit_tag "submit" , :class => "btn" %></td></tr>
+            <% end %>
+          </tbody>
+
+
+
+        </div>
+
+      <%# end %>
+    </table>
+
+</div>

@@ -1,0 +1,31 @@
+<table class="table table-hover">
+  <%= simple_form_for @choice_question do |f| %>
+    <div class="form-group">
+      <thead>
+        <tr>
+          <%= f.input :title,  :label => "题干", input_html: { class: "form-control"} %>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= f.input :right_answer_a, :label => "A" %></td>
+          <td><%= f.input :option_a, :label => "A选项", input_html: { class: "form-control"} %></td>
+        </tr>
+        <tr>
+          <td><%= f.input :right_answer_b, :label => "B" %></td>
+          <td><%= f.input :option_b, :label => "B选项", input_html: { class: "form-control"} %></td>
+        </tr>
+        <tr>
+          <td><%= f.input :right_answer_c, :label => "C" %></td>
+          <td><%= f.input :option_c, :label => "C选项", input_html: { class: "form-control"} %></td>
+        </tr>
+        <tr>
+          <td><%= f.input :right_answer_d, :label => "D" %></td>
+          <td><%= f.input :option_d, :label => "D选项", input_html: { class: "form-control"} %></td>
+        </tr>
+        <tr><%= f.submit "保存", class: "btn btn-primary", data: { disable_with: "Submiting..." } %></tr>
+      </tbody>
+    </div>
+
+  <% end %>
+</table>

@@ -1,0 +1,31 @@
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      多选题
+    </tr>
+  </thead>
+  <tbody>
+    <% @choice_questions.each do |f| %>
+      <tr>
+        <td colspan="2"><%= f.title%></td>
+      </tr>
+      <tr>
+        <td width="1%"><%= if f.right_answer_a then '✓' end %></td>
+        <td width="60%">A. <%= f.option_a%></td>
+      </tr>
+      <tr>
+        <td><%= if f.right_answer_b then '✓' end %></td>
+        <td>B. <%= f.option_b %></td>
+      </tr>
+      <tr>
+        <td><%= if f.right_answer_c then '✓' end %></td>
+        <td>C. <%= f.option_c%></td>
+      </tr>
+      <tr>
+        <td><%= if f.right_answer_d then '✓' end %></td>
+        <td>D. <%= f.option_d %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
